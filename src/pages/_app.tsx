@@ -1,5 +1,22 @@
 import type { AppProps } from "next/app";
 
+import { MantineProvider, createEmotionCache } from "@mantine/core";
+import { theme } from "@/styles/theme";
+
+export const cache = createEmotionCache({
+  key: "trivel",
+  stylisPlugins: [],
+});
+
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      emotionCache={cache}
+      theme={theme}
+    >
+      <Component {...pageProps} />{" "}
+    </MantineProvider>
+  );
 }
