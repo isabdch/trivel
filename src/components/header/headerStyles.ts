@@ -12,51 +12,6 @@ export const HeaderComponent = styled.header`
     height: 100%;
     ${({ theme }) => theme.other.flexUtil("row", "space-between", "center")};
 
-    nav {
-      ${({ theme }) => theme.other.flexUtil("row", "space-between", "center")};
-
-      a {
-        color: white;
-        margin: 0 10px;
-        position: relative;
-        font-weight: 500;
-        text-decoration: none;
-        transition: 0.2s;
-
-        &.search {
-          font-size: 20px;
-          margin-bottom: -5px;
-        }
-
-        &:not(.search) {
-          &.active::after,
-          &::after {
-            position: absolute;
-            content: "";
-            ${({ theme }) => theme.other.sizeUtil("0%", "2px")};
-            background: white;
-            left: 0;
-            bottom: -5px;
-            transition: 0.3s;
-          }
-
-          &.active::after,
-          &:hover::after {
-            width: 100%;
-          }
-        }
-      }
-
-      button {
-        margin-left: 10px;
-        cursor: pointer;
-      }
-
-      @media screen and (max-width: 768px) {
-        display: none;
-      }
-    }
-
     button:not(nav button) {
       display: none;
 

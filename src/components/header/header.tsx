@@ -1,15 +1,28 @@
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { Burger, Button } from "@mantine/core";
-import { TbSearch } from "react-icons/tb";
+import { Burger } from "@mantine/core";
+import { useClickOutside } from "@mantine/hooks";
 
+import { Menu } from "./menu/menu";
 import { HeaderComponent } from "./headerStyles";
+
+type BurgerButtonProps = {
+  current: HTMLButtonElement | null;
+};
+
+type MenuNavProps = {
+  current: HTMLElement | null;
+};
 
 export function Header() {
   const [opened, setOpened] = useState(false);
+  const [burgerRef, setBurgerRef] =
+    useState<BurgerButtonProps["current"]>(null);
+  const [menuRef, setMenuRef] = useState<MenuNavProps["current"]>(null);
+
+  useClickOutside(() => setOpened(false), null, [menuRef, burgerRef]);
 
   const router = useRouter();
 
@@ -18,49 +31,16 @@ export function Header() {
       <div className="container">
         <Image
           src="/assets/logo/trivel-white.svg"
-          width={150}
-          height={60}
+          width={170}
+          height={70}
           alt=""
           onClick={() => router.push("/")}
         />
 
-        <nav>
-          <Link className={router.asPath == "/" ? "active" : ""} href="/">
-            Home
-          </Link>
-          <Link
-            className={router.asPath == "/como-funciona" ? "active" : ""}
-            href="/como-funciona"
-          >
-            Como funciona
-          </Link>
-          <Link
-            className={router.asPath == "/roteiros" ? "active" : ""}
-            href="/roteiros"
-          >
-            Roteiros
-          </Link>
-          <Link
-            className={router.asPath == "/sobre-nos" ? "active" : ""}
-            href="/sobre-nos"
-          >
-            Sobre nós
-          </Link>
-          <Link className="search" href="">
-            <TbSearch />
-          </Link>
-
-          <Button
-            variant="white"
-            size="md"
-            compact
-            onClick={() => router.push("/contato")}
-          >
-            Contato
-          </Button>
-        </nav>
+        <Menu opened={opened} setOpened={setOpened} setMenuRef={setMenuRef} />
 
         <Burger
+          ref={(node) => setBurgerRef(node)}
           color="white"
           opened={opened}
           onClick={() => setOpened((o) => !o)}
