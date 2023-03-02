@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
       theme={theme}
     >
       <Header />
-      <Component {...pageProps} />{" "}
+      <Component {...pageProps} />
     </MantineProvider>
   );
 }

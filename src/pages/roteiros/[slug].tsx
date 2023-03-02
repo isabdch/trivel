@@ -1,3 +1,20 @@
+import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
+
 export default function Roteiro() {
-  return <></>;
+  const links = [
+    {
+      title: "Roteiros",
+      href: "/roteiros",
+    },
+    {
+      title: "Maragogi",
+      href: "/roteiros/maragogi",
+    },
+  ];
+
+  return (
+    <>
+      <Breadcrumbs links={links} />
+    </>
+  );
 }

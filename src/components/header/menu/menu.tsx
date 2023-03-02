@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import { Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
-import { TbSearch } from "react-icons/tb";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 import { IoInformationCircle } from "react-icons/io5";
+import { TbSearch } from "react-icons/tb";
 import { GiPalmTree } from "react-icons/gi";
 import { AiFillHome } from "react-icons/ai";
 

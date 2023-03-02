@@ -31,7 +31,7 @@ export function Header() {
       <div className="container">
         <Image
           src="/assets/logo/trivel-white.svg"
-          width={170}
+          width={130}
           height={70}
           alt=""
           onClick={() => router.push("/")}

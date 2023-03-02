@@ -1,3 +1,16 @@
+import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
+
 export default function ComoFunciona() {
-  return <></>;
+  const links = [
+    {
+      title: "Como funciona",
+      href: "/como-funciona",
+    },
+  ];
+
+  return (
+    <>
+      <Breadcrumbs links={links} />
+    </>
+  );
 }
