@@ -33,9 +33,9 @@ export const theme: MantineThemeOverride = {
   primaryShade: 9,
   shadows: {},
   breakpoints: {
-    sm: 768,
-    md: 1000,
-    xl: 1440,
+    sm: "768",
+    md: "1000",
+    xl: "1440",
   },
   other: {
     flexUtil: (

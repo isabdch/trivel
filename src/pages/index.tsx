@@ -1,3 +1,11 @@
+import { HomePage } from "@/styles/pages/homeStyles";
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="container">
+      <HomePage>
+        
+      </HomePage>
+    </div>
+  );
 }
