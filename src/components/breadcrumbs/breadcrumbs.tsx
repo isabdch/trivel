@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 
 import { BreadcrumbsComponent } from "./breadcrumbsStyles";
@@ -16,17 +17,16 @@ export function Breadcrumbs(props: BreadcrumbsType) {
         <Link href="/">Home</Link>&nbsp;
         {props.links.map((link, index, array) => {
           return (
-            <>
+            <React.Fragment key={link.title}>
               /&nbsp;
               <Link
-                key={link.title}
                 className={index === array.length - 1 ? "active" : ""}
                 href={link.href}
               >
                 {link.title}
               </Link>
               &nbsp;
-            </>
+            </React.Fragment>
           );
         })}
       </div>

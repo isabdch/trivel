@@ -5,4 +5,9 @@ export const ItinerariesPage = styled.main`
   background: url("/assets/images/palms.svg") no-repeat center;
   background-size: cover;
   padding: 20px;
+
+  .container {
+    ${({ theme }) => theme.other.flexUtil("row wrap", "center")};
+    gap: 20px;
+  }
 `;

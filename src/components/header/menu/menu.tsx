@@ -38,28 +38,28 @@ export function Menu(props: MenuPropsType) {
       </Link>
       <Link
         onClick={() => props.setOpened(false)}
-        className={router.asPath == "/como-funciona" ? "active" : ""}
+        className={router.asPath.includes("como-funciona") ? "active" : ""}
         href="/como-funciona"
       >
         Como funciona {matches && <BsFillQuestionCircleFill size={20} />}
       </Link>
       <Link
         onClick={() => props.setOpened(false)}
-        className={router.asPath == "/roteiros" ? "active" : ""}
+        className={router.asPath.includes("roteiros") ? "active" : ""}
         href="/roteiros"
       >
         Roteiros {matches && <GiPalmTree size={20} />}
       </Link>
       <Link
         onClick={() => props.setOpened(false)}
-        className={router.asPath == "/sobre-nos" ? "active" : ""}
+        className={router.asPath.includes("sobre-nos") ? "active" : ""}
         href="/sobre-nos"
       >
         Sobre nós {matches && <IoInformationCircle size={25} />}
       </Link>
-      <Link className="search" href="">
+      {/* <Link className="search" href="">
         <TbSearch />
-      </Link>
+      </Link> */}
 
       <Button
         variant={matches ? "filled" : "white"}
