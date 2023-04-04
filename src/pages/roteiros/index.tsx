@@ -24,9 +24,15 @@ export default function Roteiros({ itineraries }: Props) {
       <Breadcrumbs links={links} />
       <ItinerariesPage>
         <div className="container">
-          {itineraries.data?.map((itinerary) => {
-            return <Card itinerary={itinerary} key={itinerary.id} />;
-          })}
+          <h1>
+            Roteiros <strong>Trível</strong>
+          </h1>
+
+          <div className="cards">
+            {itineraries.data?.map((itinerary) => {
+              return <Card itinerary={itinerary} key={itinerary.id} />;
+            })}
+          </div>
         </div>
       </ItinerariesPage>
     </>
@@ -42,7 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       itineraries,
-      revalidate: 5 * 60 * 60 // 5 hours
+      revalidate: 5 * 60 * 60, // 5 hours
     },
   };
-}
+};

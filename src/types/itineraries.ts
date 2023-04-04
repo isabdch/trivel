@@ -12,8 +12,28 @@ export type ItineraryGeneral = {
 };
 
 export type ItineraryAttributes = {
+  cover?: {
+    data: {
+      attributes: {
+        alternativeText: string;
+        caption?: string;
+        url: string;
+      };
+    };
+  };
   createdAt: string;
   description: string;
+  details: string;
+  media?: {
+    data: {
+      attributes: {
+        alternativeText: string;
+        caption?: string;
+        url: string;
+      };
+      id: number;
+    }[];
+  };
   name: string;
   popular: boolean;
   thumbnail?: {

@@ -29,13 +29,21 @@ export function Header() {
   return (
     <HeaderComponent>
       <div className="container">
-        <Image
-          src="/assets/logo/trivel-white.svg"
-          width={130}
-          height={70}
-          alt=""
-          onClick={() => router.push("/")}
-        />
+        <div className="logo">
+          <Image
+            src="/assets/logo/trivel-white.svg"
+            width={130}
+            height={70}
+            alt=""
+            onClick={() => router.push("/")}
+          />
+          <Image
+            src="/assets/images/little_palms.svg"
+            alt=""
+            width={70}
+            height={70}
+          />
+        </div>
 
         <Menu opened={opened} setOpened={setOpened} setMenuRef={setMenuRef} />
 

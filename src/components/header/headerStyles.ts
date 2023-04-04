@@ -6,11 +6,22 @@ export const HeaderComponent = styled.header`
   position: sticky;
   top: 0;
   background: ${({ theme }) => theme.colors.trivelOrange[9]};
-  padding: 5px 20px;
+  padding: 0 20px;
+  z-index: 99;
 
   .container {
     height: 100%;
     ${({ theme }) => theme.other.flexUtil("row", "space-between", "center")};
+
+    .logo {
+      height: 100%;
+      ${({ theme }) => theme.other.flexUtil("row", "space-between", "center")};
+
+      img:last-of-type {
+        margin-top: auto;
+        margin-left: 30px;
+      }
+    }
 
     button:not(nav button) {
       display: none;

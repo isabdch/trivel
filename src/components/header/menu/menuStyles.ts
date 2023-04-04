@@ -44,8 +44,7 @@ export const MenuComponent = styled.nav`
     ${({ theme }) => theme.other.sizeUtil("100%", "calc(100% - 80px)")};
     ${({ theme }) => theme.other.flexUtil("column", "flex-start", "center")};
     max-width: 300px;
-    background: #ef947de6;
-    backdrop-filter: blur(1px);
+    background: ${({ theme }) => theme.colors.trivelOrange[5]};
     padding: 20px;
     position: fixed;
     bottom: 0;
@@ -64,7 +63,7 @@ export const MenuComponent = styled.nav`
 
       &:not(.search) {
         &::before {
-          content: "TRIVEL";
+          content: "TRÍVEL";
           color: ${({ theme }) => theme.colors.trivelOrange[5]};
           font-size: 32px;
           font-weight: 900;

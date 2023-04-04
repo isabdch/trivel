@@ -89,5 +89,13 @@ export const theme: MantineThemeOverride = {
       maxWidth: "1080px",
       margin: "0 auto",
     },
+
+    p: {
+      fontSize: "clamp(14px, 1.5vw, 16px)",
+    },
+
+    h1: {
+      fontSize: "clamp(28px, 5vw, 46px)",
+    }
   }),
 };

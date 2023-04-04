@@ -1,9 +1,12 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import { Itineraries, Itinerary } from "@/types/itineraries";
 
+import { Cover } from "@/components/cover/cover";
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
+import { ItineraryPage } from "@/styles/pages/roteiroStyles";
 
 type PathParams = {
   slug: string;
@@ -26,9 +29,27 @@ export default function Roteiro({ itinerary }: Props) {
     },
   ];
 
+  console.log(itinerary);
+
   return (
     <>
       <Breadcrumbs links={links} />
+      <Cover
+        class="itinerary"
+        title={itinerary.title}
+        src={
+          process.env.NEXT_PUBLIC_URL! +
+          itinerary.data.attributes.cover?.data.attributes.url
+        }
+        alt={
+          process.env.NEXT_PUBLIC_URL! +
+          itinerary.data.attributes.cover?.data.attributes.alternativeText
+        }
+      />
+      <ItineraryPage>
+        <div className="container">
+        </div>
+      </ItineraryPage>
     </>
   );
 }
@@ -44,7 +65,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       itinerary,
-      revalidate: 5 * 60 * 60 // 5 hours
+      revalidate: 5 * 60 * 60, // 5 hours
     },
   };
 };
