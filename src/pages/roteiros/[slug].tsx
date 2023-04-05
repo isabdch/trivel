@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -35,20 +34,13 @@ export default function Roteiro({ itinerary }: Props) {
     <>
       <Breadcrumbs links={links} />
       <Cover
-        class="itinerary"
-        title={itinerary.title}
         src={
           process.env.NEXT_PUBLIC_URL! +
           itinerary.data.attributes.cover?.data.attributes.url
         }
-        alt={
-          process.env.NEXT_PUBLIC_URL! +
-          itinerary.data.attributes.cover?.data.attributes.alternativeText
-        }
       />
       <ItineraryPage>
-        <div className="container">
-        </div>
+        <div className="container"></div>
       </ItineraryPage>
     </>
   );

@@ -17,15 +17,31 @@ export function Card({ itinerary }: Props) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+  const animation = {
+    style: {
+      opacity: 0,
+      scale: 0.5,
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+    },
+    transition: {
+      duration: 0.5,
+      type: "spring",
+      bounce: 0.4,
+    },
+  };
+
   return (
-    <CardComponent>
+    <CardComponent {...animation}>
       <div className="img">
         <Image
           src={
             itinerary.attributes.thumbnail?.data
               ? process.env.NEXT_PUBLIC_URL! +
                 itinerary.attributes.thumbnail.data.attributes.url
-              : "/assets/images/card_default.png"
+              : "/assets/images/card_default.jpeg"
           }
           alt={itinerary.attributes.name}
           fill

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
-export const CardComponent = styled.div`
+export const CardComponent = styled(motion.div)`
   width: 100%;
   max-width: 300px;
   background: ${({ theme }) => theme.white};

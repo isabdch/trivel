@@ -2,9 +2,10 @@ import styled from "@emotion/styled";
 
 export const ItinerariesPage = styled.main`
   min-height: calc(100vh - 111.69px);
-  background: url("/assets/images/new_palms.svg") no-repeat center;
-  background-size: cover;
+  background: url("/assets/images/page_banner_bg.svg") no-repeat;
+  background-size: 100%;
   padding: 20px;
+  position: relative;
 
   .container {
     h1 {
@@ -12,8 +13,6 @@ export const ItinerariesPage = styled.main`
       margin-bottom: 30px;
 
       strong {
-        /* color: black;
-        font-size: clamp(18px, 3vw, 26px); */
         font-weight: inherit;
       }
     }
