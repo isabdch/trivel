@@ -1,17 +1,15 @@
 import { GetStaticProps } from "next";
-
 import { Itineraries } from "@/types/itineraries";
-
+import { useFetchItineraries } from "@/composables/useFetch";
 import { Card } from "@/components/itineraries/card/card";
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
-
 import { ItinerariesPage } from "@/styles/pages/roteirosStyles";
 
-type Props = {
-  itineraries: Itineraries;
+type ItinerariesPageProps = {
+  itineraries: Itineraries[];
 };
 
-export default function Roteiros({ itineraries }: Props) {
+export default function Roteiros({ itineraries }: ItinerariesPageProps) {
   const links = [
     {
       title: "Roteiros",
@@ -29,7 +27,7 @@ export default function Roteiros({ itineraries }: Props) {
           </h1>
 
           <div className="cards">
-            {itineraries.data?.map((itinerary) => {
+            {itineraries?.map((itinerary) => {
               return <Card itinerary={itinerary} key={itinerary.id} />;
             })}
           </div>
@@ -39,11 +37,10 @@ export default function Roteiros({ itineraries }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/itineraries?populate=*`
-  );
-  const itineraries: Itineraries = await res.json();
+export const getStaticProps: GetStaticProps<
+  ItinerariesPageProps
+> = async () => {
+  const itineraries: Itineraries[] = await useFetchItineraries();
 
   return {
     props: {

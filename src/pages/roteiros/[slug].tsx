@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
-
+import { useFetchItineraries, useFetchItinerary } from "@/composables/useFetch";
 import { Itineraries, Itinerary } from "@/types/itineraries";
-
 import { Cover } from "@/components/cover/cover";
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
 import { ItineraryPage } from "@/styles/pages/roteiroStyles";
@@ -11,11 +10,11 @@ type PathParams = {
   slug: string;
 };
 
-type Props = {
+type ItineraryPageProps = {
   itinerary: Itinerary;
 };
 
-export default function Roteiro({ itinerary }: Props) {
+export default function Roteiro({ itinerary }: ItineraryPageProps) {
   const router = useRouter();
   const links = [
     {
@@ -23,7 +22,7 @@ export default function Roteiro({ itinerary }: Props) {
       href: "/roteiros",
     },
     {
-      title: itinerary.data.attributes.name,
+      title: itinerary.name,
       href: router.asPath,
     },
   ];
@@ -33,12 +32,7 @@ export default function Roteiro({ itinerary }: Props) {
   return (
     <>
       <Breadcrumbs links={links} />
-      <Cover
-        src={
-          process.env.NEXT_PUBLIC_URL! +
-          itinerary.data.attributes.cover?.data.attributes.url
-        }
-      />
+      <Cover src={itinerary.cover} />
       <ItineraryPage>
         <div className="container"></div>
       </ItineraryPage>
@@ -46,13 +40,8 @@ export default function Roteiro({ itinerary }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/itineraries/${
-      (params as PathParams).slug.split("-")[0]
-    }?populate=*`
-  );
-  const itinerary: Itinerary = await res.json();
+export const getStaticProps: GetStaticProps<ItineraryPageProps> = async ({ params }) => {
+  const itinerary: Itinerary = await useFetchItinerary((params as PathParams).slug);
 
   return {
     props: {
@@ -63,17 +52,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/itineraries?populate=*`
-  );
-  const itineraries: Itineraries = await res.json();
+  const itineraries: Itineraries[] = await useFetchItineraries();
 
-  const paths = itineraries.data.map((itinerary) => ({
+  const paths = itineraries.map((itinerary) => ({
     params: {
-      slug:
-        itinerary.id +
-        "-" +
-        itinerary.attributes.name.toLowerCase().replaceAll(" ", "-"),
+      slug: itinerary.link,
     },
   }));
 

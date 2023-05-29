@@ -1,50 +1,20 @@
 export type Itineraries = {
-  data: ItineraryGeneral[];
+  name: string;
+  id: string;
+  description: string;
+  popular: boolean;
+  img: string;
+  link: string;
 };
 
 export type Itinerary = {
-  data: ItineraryGeneral;
-};
-
-export type ItineraryGeneral = {
-  attributes: ItineraryAttributes;
-  id: number;
-};
-
-export type ItineraryAttributes = {
-  cover?: {
-    data: {
-      attributes: {
-        alternativeText: string;
-        caption?: string;
-        url: string;
-      };
-    };
-  };
-  createdAt: string;
-  description: string;
-  details: string;
-  media?: {
-    data: {
-      attributes: {
-        alternativeText: string;
-        caption?: string;
-        url: string;
-      };
-      id: number;
-    }[];
-  };
   name: string;
-  popular: boolean;
-  thumbnail?: {
-    data: {
-      attributes: {
-        alternativeText: string;
-        caption?: string;
-        url: string;
-      };
-      id: number;
-    };
+  id: string;
+  details: {
+    description: string;
   };
-  updatedAt: string;
+  media: string[];
+  popular: boolean;
+  cover: string;
+  link: string;
 };

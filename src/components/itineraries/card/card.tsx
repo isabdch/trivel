@@ -1,16 +1,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
-import { ItineraryGeneral } from "@/types/itineraries";
-
+import { Itineraries } from "@/types/itineraries";
 import { Badge, Button } from "@mantine/core";
 import { GiPalmTree } from "react-icons/gi";
-
 import { CardComponent } from "./cardStyles";
 
 type Props = {
-  itinerary: ItineraryGeneral;
+  itinerary: Itineraries;
 };
 
 export function Card({ itinerary }: Props) {
@@ -38,35 +35,27 @@ export function Card({ itinerary }: Props) {
       <div className="img">
         <Image
           src={
-            itinerary.attributes.thumbnail?.data
-              ? process.env.NEXT_PUBLIC_URL! +
-                itinerary.attributes.thumbnail.data.attributes.url
-              : "/assets/images/card_default.jpeg"
+            itinerary?.img ? itinerary?.img : "/assets/images/card_default.jpeg"
           }
-          alt={itinerary.attributes.name}
+          alt={itinerary?.name}
           fill
         />
       </div>
 
       <div className="card__body">
         <div className="title">
-          <h4>{itinerary.attributes.name}</h4>
-          {itinerary.attributes.popular && <Badge>Popular</Badge>}
+          <h4>{itinerary?.name}</h4>
+          {itinerary?.popular && <Badge>Popular</Badge>}
         </div>
 
-        <p>{itinerary.attributes.description}</p>
+        <p>{itinerary?.description}</p>
 
         <Button
           loading={loading}
           leftIcon={<GiPalmTree />}
           onClick={() => {
             setLoading(true);
-            router.push(
-              "/roteiros/" +
-                itinerary.id +
-                "-" +
-                itinerary.attributes.name.toLowerCase().replaceAll(" ", "-")
-            );
+            router.push("/roteiros/" + itinerary?.link);
           }}
         >
           Ver destino
