@@ -1,3 +1,5 @@
-export default function Pesquisar() {
+const Search = () => {
   return <></>;
 }
+
+export default Search;

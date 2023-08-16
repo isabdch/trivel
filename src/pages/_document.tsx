@@ -7,7 +7,6 @@ import Document, {
   DocumentProps,
 } from "next/document";
 import { ServerStyles, createStylesServer } from "@mantine/next";
-
 import { cache } from "./_app";
 
 const stylesServer = createStylesServer(cache);
@@ -16,7 +15,7 @@ interface MyDocumentProps extends DocumentProps {
   styles: JSX.Element[];
 }
 
-function MyDocument(props: MyDocumentProps): JSX.Element {
+const MyDocument = (props: MyDocumentProps): JSX.Element => {
   return (
     <Document {...props}>
       <Html>

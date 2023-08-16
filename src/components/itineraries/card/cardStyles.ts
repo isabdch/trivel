@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const CardComponent = styled(motion.div)`
   width: 100%;
-  max-width: 300px;
+  /* max-width: 300px; */
   background: ${({ theme }) => theme.white};
   box-shadow: 1px 1px 10px 0.1px ${({ theme }) => theme.colors.gray[3]};
   ${({ theme }) => theme.other.flexUtil("column")};
@@ -37,8 +37,8 @@ export const CardComponent = styled(motion.div)`
       margin: 15px 0;
       font-size: 14px;
       display: -webkit-box;
-      line-clamp: 6;
-      -webkit-line-clamp: 6;
+      line-clamp: 4;
+      -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }

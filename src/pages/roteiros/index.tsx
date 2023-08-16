@@ -9,7 +9,7 @@ type ItinerariesPageProps = {
   itineraries: Itineraries[];
 };
 
-export default function Roteiros({ itineraries }: ItinerariesPageProps) {
+const Itineraries = ({ itineraries }: ItinerariesPageProps) => {
   const links = [
     {
       title: "Roteiros",
@@ -35,7 +35,9 @@ export default function Roteiros({ itineraries }: ItinerariesPageProps) {
       </ItinerariesPage>
     </>
   );
-}
+};
+
+export default Itineraries;
 
 export const getStaticProps: GetStaticProps<
   ItinerariesPageProps

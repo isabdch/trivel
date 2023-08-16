@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
 
-export default function ComoFunciona() {
+const HowItWorks = () => {
   const links = [
     {
       title: "Como funciona",
@@ -14,3 +14,5 @@ export default function ComoFunciona() {
     </>
   );
 }
+
+export default HowItWorks;

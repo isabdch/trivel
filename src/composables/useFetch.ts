@@ -6,7 +6,6 @@ export const useFetchItineraries = async () => {
       `${process.env.NEXT_PUBLIC_API_URL}/itineraries`
     );
     const data = await res.data;
-
     return data;
   } catch (error) {
     console.error("Error fetching API data:", error);
@@ -20,7 +19,6 @@ export const useFetchItinerary = async (link: string) => {
       `${process.env.NEXT_PUBLIC_API_URL}/itineraries/${link}`
     );
     const data = await res.data;
-
     return data;
   } catch (error) {
     console.error("Error fetching API data:", error);

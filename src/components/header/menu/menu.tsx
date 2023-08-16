@@ -1,16 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-
 import { Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 import { IoInformationCircle } from "react-icons/io5";
-import { TbSearch } from "react-icons/tb";
 import { GiPalmTree } from "react-icons/gi";
 import { AiFillHome } from "react-icons/ai";
-
 import { MenuComponent } from "./menuStyles";
 
 type MenuPropsType = {
@@ -21,7 +17,6 @@ type MenuPropsType = {
 
 export function Menu(props: MenuPropsType) {
   const router = useRouter();
-
   const matches = useMediaQuery("(max-width: 768px)");
 
   return (
@@ -57,10 +52,6 @@ export function Menu(props: MenuPropsType) {
       >
         Sobre nós {matches && <IoInformationCircle size={25} />}
       </Link>
-      {/* <Link className="search" href="">
-        <TbSearch />
-      </Link> */}
-
       <Button
         variant={matches ? "filled" : "white"}
         size={matches ? "lg" : "md"}

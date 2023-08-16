@@ -46,7 +46,7 @@ export default function handler(
       details: {
         description: "",
       },
-      popular: false,
+      popular: true,
       cover: "",
       media: [],
       link: "praia-de-maragogi",

@@ -1,11 +1,12 @@
 import { HomePage } from "@/styles/pages/homeStyles";
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="container">
       <HomePage>
-        
       </HomePage>
     </div>
   );
 }
+
+export default Home;

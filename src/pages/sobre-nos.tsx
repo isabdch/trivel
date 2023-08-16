@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
 
-export default function SobreNos() {
+const AboutUs = () => {
   const links = [
     {
       title: "Sobre nós",
@@ -14,3 +14,5 @@ export default function SobreNos() {
     </>
   );
 }
+
+export default AboutUs;

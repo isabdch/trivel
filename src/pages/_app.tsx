@@ -2,15 +2,16 @@ import type { AppProps } from "next/app";
 import { MantineProvider, createEmotionCache } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { LayoutGroup } from "framer-motion";
-import { theme } from "@/styles/theme";
 import { Header } from "@/components/header/header";
+import { Footer } from "@/components/footer/footer";
+import { theme } from "@/styles/theme";
 
 export const cache = createEmotionCache({
   key: "trivel",
   stylisPlugins: [],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <MantineProvider
       withGlobalStyles
@@ -22,7 +23,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <LayoutGroup>
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </LayoutGroup>
     </MantineProvider>
   );
 }
+
+export default App;

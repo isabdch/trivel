@@ -5,6 +5,7 @@ export const ItinerariesPage = styled.main`
   background: url("/assets/images/page_banner_bg.svg") no-repeat;
   background-size: 100%;
   padding: 20px;
+  padding-bottom: 60px;
   position: relative;
 
   .container {
@@ -18,8 +19,9 @@ export const ItinerariesPage = styled.main`
     }
 
     .cards {
-      ${({ theme }) => theme.other.flexUtil("row wrap", "center")};
-      gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-gap: 25px;
     }
   }
 `;

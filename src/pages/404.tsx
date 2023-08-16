@@ -1,3 +1,5 @@
-export default function Exception() {
+const Exception = () => {
   return <></>;
 }
+
+export default Exception;

@@ -44,8 +44,10 @@ export function Card({ itinerary }: Props) {
 
       <div className="card__body">
         <div className="title">
-          <h4>{itinerary?.name}</h4>
-          {itinerary?.popular && <Badge>Popular</Badge>}
+          <h4>
+            {itinerary?.name}
+            {itinerary?.popular && <Badge>Popular</Badge>}
+          </h4>
         </div>
 
         <p>{itinerary?.description}</p>

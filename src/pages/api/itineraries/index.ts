@@ -38,7 +38,7 @@ export default function handler(
       id: "W5tF2aG6vR",
       description:
         "Exuberância e mergulho com snorkel em piscinas naturais de águas cristalinas. Encante-se com corais coloridos e relaxe à beira-mar.",
-      popular: false,
+      popular: true,
       img: "",
       link: "praia-de-maragogi",
     },

@@ -14,7 +14,7 @@ type ItineraryPageProps = {
   itinerary: Itinerary;
 };
 
-export default function Roteiro({ itinerary }: ItineraryPageProps) {
+const Itinerary = ({ itinerary }: ItineraryPageProps) => {
   const router = useRouter();
   const links = [
     {
@@ -39,6 +39,8 @@ export default function Roteiro({ itinerary }: ItineraryPageProps) {
     </>
   );
 }
+
+export default Itinerary;
 
 export const getStaticProps: GetStaticProps<ItineraryPageProps> = async ({ params }) => {
   const itinerary: Itinerary = await useFetchItinerary((params as PathParams).slug);

@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
 
-export default function Contato() {
+const Contact = () => {
   const links = [
     {
       title: "Contato",
@@ -14,3 +14,5 @@ export default function Contato() {
     </>
   );
 }
+
+export default Contact;

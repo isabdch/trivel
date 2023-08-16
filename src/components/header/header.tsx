@@ -1,10 +1,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
 import { Burger } from "@mantine/core";
 import { useClickOutside } from "@mantine/hooks";
-
 import { Menu } from "./menu/menu";
 import { HeaderComponent } from "./headerStyles";
 
@@ -16,15 +14,14 @@ type MenuNavProps = {
   current: HTMLElement | null;
 };
 
-export function Header() {
+export const Header = () => {
   const [opened, setOpened] = useState(false);
   const [burgerRef, setBurgerRef] =
     useState<BurgerButtonProps["current"]>(null);
   const [menuRef, setMenuRef] = useState<MenuNavProps["current"]>(null);
 
-  useClickOutside(() => setOpened(false), null, [menuRef, burgerRef]);
-
   const router = useRouter();
+  useClickOutside(() => setOpened(false), null, [menuRef, burgerRef]);
 
   return (
     <HeaderComponent>
@@ -34,7 +31,7 @@ export function Header() {
             src="/assets/logo/trivel-white.svg"
             width={130}
             height={70}
-            alt=""
+            alt="Trível"
             onClick={() => router.push("/")}
           />
           <Image
