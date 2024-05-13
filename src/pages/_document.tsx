@@ -1,49 +1,31 @@
-import Document, {
-  DocumentContext,
+// Core
+import {
   Html,
   Head,
   Main,
   NextScript,
   DocumentProps,
 } from "next/document";
-import { ServerStyles, createStylesServer } from "@mantine/next";
-import { cache } from "./_app";
 
-const stylesServer = createStylesServer(cache);
+// Libraries
+import { ColorSchemeScript } from "@mantine/core";
 
 interface MyDocumentProps extends DocumentProps {
   styles: JSX.Element[];
 }
 
-const MyDocument = (props: MyDocumentProps): JSX.Element => {
+export default function Document(props: MyDocumentProps): JSX.Element {
   return (
     <Document {...props}>
-      <Html>
-        <Head>{/* Add your app specific head tags here */}</Head>
+      <Html lang="en">
+        <Head>
+          <ColorSchemeScript defaultColorScheme="auto" />
+        </Head>
         <body>
           <Main />
           <NextScript />
-          {props.styles}
         </body>
       </Html>
     </Document>
   );
 }
-
-MyDocument.getInitialProps = async (ctx: DocumentContext) => {
-  const initialProps = await Document.getInitialProps(ctx);
-
-  return {
-    ...initialProps,
-    styles: [
-      initialProps.styles,
-      <ServerStyles
-        html={initialProps.html}
-        server={stylesServer}
-        key="styles"
-      />,
-    ],
-  };
-};
-
-export default MyDocument;

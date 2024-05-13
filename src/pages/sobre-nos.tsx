@@ -1,3 +1,4 @@
+// Components
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
 
 const AboutUs = () => {

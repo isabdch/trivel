@@ -1,10 +1,9 @@
-import { HomePage } from "@/styles/pages/homeStyles";
+// Assets
+import home from "@/styles/pages/home.module.css";
 
 const Home = () => {
   return (
-    <div className="container">
-      <HomePage>
-      </HomePage>
+    <div className={home.container}>
     </div>
   );
 }

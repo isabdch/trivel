@@ -1,23 +1,25 @@
+// Core
 import type { AppProps } from "next/app";
-import { MantineProvider, createEmotionCache } from "@mantine/core";
-import { Notifications } from "@mantine/notifications";
+
+// Libraries
+import "@mantine/core/styles.css";
 import { LayoutGroup } from "framer-motion";
+import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
+
+// Components
 import { Header } from "@/components/header/header";
 import { Footer } from "@/components/footer/footer";
-import { theme } from "@/styles/theme";
 
-export const cache = createEmotionCache({
-  key: "trivel",
-  stylisPlugins: [],
-});
+// Assets
+import { theme, resolver } from "@/styles/theme";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      emotionCache={cache}
       theme={theme}
+      classNamesPrefix="trivel"
+      cssVariablesResolver={resolver}
     >
       <Notifications position="top-right" zIndex={999} limit={5} />
       <LayoutGroup>
@@ -27,6 +29,6 @@ const App = ({ Component, pageProps }: AppProps) => {
       </LayoutGroup>
     </MantineProvider>
   );
-}
+};
 
 export default App;

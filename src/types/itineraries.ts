@@ -1,4 +1,4 @@
-export type Itineraries = {
+export type ItinerariesT = {
   name: string;
   id: string;
   description: string;
@@ -7,7 +7,7 @@ export type Itineraries = {
   link: string;
 };
 
-export type Itinerary = {
+export type ItineraryT = {
   name: string;
   id: string;
   details: {

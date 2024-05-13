@@ -1,3 +1,4 @@
+// Components
 const Search = () => {
   return <></>;
 }

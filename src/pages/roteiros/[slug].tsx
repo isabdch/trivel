@@ -1,20 +1,29 @@
+// Core
 import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
+
+// Composables
 import { useFetchItineraries, useFetchItinerary } from "@/composables/useFetch";
-import { Itineraries, Itinerary } from "@/types/itineraries";
+
+// Components
 import { Cover } from "@/components/cover/cover";
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
+
+// Assets
 import { ItineraryPage } from "@/styles/pages/roteiroStyles";
 
-type PathParams = {
+// Types
+import { ItinerariesT, ItineraryT } from "@/types/itineraries";
+
+type PathParamsT = {
   slug: string;
 };
 
-type ItineraryPageProps = {
-  itinerary: Itinerary;
+type ItineraryPagePropsT = {
+  itinerary: ItineraryT;
 };
 
-const Itinerary = ({ itinerary }: ItineraryPageProps) => {
+const Itinerary = ({ itinerary }: ItineraryPagePropsT) => {
   const router = useRouter();
   const links = [
     {
@@ -42,8 +51,8 @@ const Itinerary = ({ itinerary }: ItineraryPageProps) => {
 
 export default Itinerary;
 
-export const getStaticProps: GetStaticProps<ItineraryPageProps> = async ({ params }) => {
-  const itinerary: Itinerary = await useFetchItinerary((params as PathParams).slug);
+export const getStaticProps: GetStaticProps<ItineraryPagePropsT> = async ({ params }) => {
+  const itinerary: ItineraryT = await useFetchItinerary((params as PathParamsT).slug);
 
   return {
     props: {
@@ -54,7 +63,7 @@ export const getStaticProps: GetStaticProps<ItineraryPageProps> = async ({ param
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const itineraries: Itineraries[] = await useFetchItineraries();
+  const itineraries: ItinerariesT[] = await useFetchItineraries();
 
   const paths = itineraries.map((itinerary) => ({
     params: {

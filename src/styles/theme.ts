@@ -1,6 +1,11 @@
-import { MantineThemeOverride } from "@mantine/core";
+// Libraries
+import {
+  MantineThemeOverride,
+  createTheme,
+  CSSVariablesResolver,
+} from "@mantine/core";
 
-export const theme: MantineThemeOverride = {
+export const theme: MantineThemeOverride = createTheme({
   colors: {
     trivelOrange: [
       "#FDF2EF",
@@ -76,26 +81,21 @@ export const theme: MantineThemeOverride = {
       xx: "60px",
     },
   },
-  globalStyles: (theme) => ({
-    "*": {
-      margin: 0,
-      padding: 0,
-      boxSizing: "border-box",
-      fontFamily: "Montserrat, sans-serif",
-    },
+});
 
-    ".container": {
-      width: "100%",
-      maxWidth: "1080px",
-      margin: "0 auto",
-    },
-
-    p: {
-      fontSize: "clamp(14px, 1.5vw, 16px)",
-    },
-
-    h1: {
-      fontSize: "clamp(28px, 5vw, 46px)",
-    }
-  }),
-};
+export const resolver: CSSVariablesResolver = (theme) => ({
+  variables: {
+    "--trivel-orange-0": theme.colors.trivelOrange[0],
+    "--trivel-orange-1": theme.colors.trivelOrange[1],
+    "--trivel-orange-2": theme.colors.trivelOrange[2],
+    "--trivel-orange-3": theme.colors.trivelOrange[3],
+    "--trivel-orange-4": theme.colors.trivelOrange[4],
+    "--trivel-orange-5": theme.colors.trivelOrange[5],
+    "--trivel-orange-6": theme.colors.trivelOrange[6],
+    "--trivel-orange-7": theme.colors.trivelOrange[7],
+    "--trivel-orange-8": theme.colors.trivelOrange[8],
+    "--trivel-orange-9": theme.colors.trivelOrange[9]
+  },
+  light: {},
+  dark: {},
+});

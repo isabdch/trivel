@@ -1,12 +1,21 @@
+// Core
 import { GetStaticProps } from "next";
-import { Itineraries } from "@/types/itineraries";
+
+// Composables
 import { useFetchItineraries } from "@/composables/useFetch";
+
+// Components
 import { Card } from "@/components/itineraries/card/card";
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
+
+// Assets
 import { ItinerariesPage } from "@/styles/pages/roteirosStyles";
 
+// Types
+import { ItinerariesT } from "@/types/itineraries";
+
 type ItinerariesPageProps = {
-  itineraries: Itineraries[];
+  itineraries: ItinerariesT[];
 };
 
 const Itineraries = ({ itineraries }: ItinerariesPageProps) => {
@@ -42,7 +51,7 @@ export default Itineraries;
 export const getStaticProps: GetStaticProps<
   ItinerariesPageProps
 > = async () => {
-  const itineraries: Itineraries[] = await useFetchItineraries();
+  const itineraries: ItinerariesT[] = await useFetchItineraries();
 
   return {
     props: {

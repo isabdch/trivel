@@ -1,11 +1,14 @@
+// Core
 import { NextApiRequest, NextApiResponse } from "next";
-import { Itineraries } from "@/types/itineraries";
+
+// Types
+import { ItinerariesT } from "@/types/itineraries";
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Itineraries[]>
+  res: NextApiResponse<ItinerariesT[]>
 ) {
-  const itineraries: Itineraries[] = [
+  const itineraries: ItinerariesT[] = [
     {
       name: "Praia de Paripueira",
       id: "Xy3u9oPq7R",

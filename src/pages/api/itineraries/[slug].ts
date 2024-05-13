@@ -1,9 +1,12 @@
+// Core
 import { NextApiRequest, NextApiResponse } from "next";
-import { Itinerary } from "@/types/itineraries";
+
+// Types
+import { ItineraryT } from "@/types/itineraries";
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Itinerary | { message: string }>
+  res: NextApiResponse<ItineraryT | { message: string }>
 ) {
   const itineraries = [
     {
