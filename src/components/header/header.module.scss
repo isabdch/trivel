@@ -1,0 +1,31 @@
+.header {
+  @include size-util(100%, 80px);
+  background: $primary_10;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  .container {
+    @include flex-util(row, space-between, center);
+    height: 100%;
+
+    .logo {
+      @include flex-util(row, space-between, center);
+      height: 100%;
+
+      img:last-of-type {
+        margin-top: auto;
+        margin-left: 30px;
+      }
+    }
+
+    button:not(nav button) {
+      display: none;
+
+      @media screen and (max-width: 768px) {
+        display: initial;
+      }
+    }
+  }
+}

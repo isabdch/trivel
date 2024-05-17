@@ -1,7 +1,9 @@
+// Core
 import React from "react";
 import Link from "next/link";
 
-import { BreadcrumbsComponent } from "./breadcrumbsStyles";
+// Assets
+import styles from "./breadcrumbs.module.scss";
 
 type BreadcrumbsType = {
   links: {
@@ -10,9 +12,9 @@ type BreadcrumbsType = {
   }[];
 };
 
-export function Breadcrumbs(props: BreadcrumbsType) {
+export const Breadcrumbs = (props: BreadcrumbsType) => {
   return (
-    <BreadcrumbsComponent>
+    <div className={styles.breadcrumbs}>
       <div className="container">
         <Link href="/">Home</Link>&nbsp;
         {props.links.map((link, index, array) => {
@@ -20,7 +22,7 @@ export function Breadcrumbs(props: BreadcrumbsType) {
             <React.Fragment key={link.title}>
               /&nbsp;
               <Link
-                className={index === array.length - 1 ? "active" : ""}
+                className={index === array.length - 1 ? styles.active : ""}
                 href={link.href}
               >
                 {link.title}
@@ -30,6 +32,6 @@ export function Breadcrumbs(props: BreadcrumbsType) {
           );
         })}
       </div>
-    </BreadcrumbsComponent>
+    </div>
   );
 }

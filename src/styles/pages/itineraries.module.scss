@@ -1,0 +1,19 @@
+.itineraries {
+  min-height: calc(100vh - 111.69px);
+  background: url("/assets/images/page_banner_bg.svg") no-repeat;
+  background-size: 100%;
+  padding: 20px;
+  padding-bottom: 60px;
+  position: relative;
+
+  h1 {
+    color: $primary_10;
+    margin-bottom: 30px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 40px;
+  }
+}

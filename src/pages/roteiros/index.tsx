@@ -9,7 +9,7 @@ import { Card } from "@/components/itineraries/card/card";
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
 
 // Assets
-import { ItinerariesPage } from "@/styles/pages/roteirosStyles";
+import styles from "@/styles/pages/itineraries.module.scss";
 
 // Types
 import { ItinerariesT } from "@/types/itineraries";
@@ -29,19 +29,17 @@ const Itineraries = ({ itineraries }: ItinerariesPageProps) => {
   return (
     <>
       <Breadcrumbs links={links} />
-      <ItinerariesPage>
+      <main className={styles.itineraries}>
         <div className="container">
-          <h1>
-            Roteiros <strong>Trível</strong>
-          </h1>
+          <h1>Roteiros Trível</h1>
 
-          <div className="cards">
+          <div className={styles.cards}>
             {itineraries?.map((itinerary) => {
               return <Card itinerary={itinerary} key={itinerary.id} />;
             })}
           </div>
         </div>
-      </ItinerariesPage>
+      </main>
     </>
   );
 };

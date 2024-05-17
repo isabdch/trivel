@@ -1,7 +1,7 @@
 // Libraries
 import {
-  MantineThemeOverride,
   createTheme,
+  MantineThemeOverride,
   CSSVariablesResolver,
 } from "@mantine/core";
 

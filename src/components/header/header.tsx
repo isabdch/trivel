@@ -1,32 +1,40 @@
+// Core
 import { useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/router";
+import Image from "next/image";
+
+// Libraries
 import { Burger } from "@mantine/core";
 import { useClickOutside } from "@mantine/hooks";
-import { Menu } from "./menu/menu";
-import { HeaderComponent } from "./headerStyles";
 
-type BurgerButtonProps = {
+// Components
+import { Menu } from "./menu/menu";
+
+// Assets
+import styles from "./header.module.scss";
+
+type BurgerButtonPropsT = {
   current: HTMLButtonElement | null;
 };
 
-type MenuNavProps = {
+type MenuNavPropsT = {
   current: HTMLElement | null;
 };
 
 export const Header = () => {
-  const [opened, setOpened] = useState(false);
-  const [burgerRef, setBurgerRef] =
-    useState<BurgerButtonProps["current"]>(null);
-  const [menuRef, setMenuRef] = useState<MenuNavProps["current"]>(null);
-
   const router = useRouter();
+
+  const [opened, setOpened] = useState(false);
+  const [menuRef, setMenuRef] = useState<MenuNavPropsT["current"]>(null);
+  const [burgerRef, setBurgerRef] =
+    useState<BurgerButtonPropsT["current"]>(null);
+
   useClickOutside(() => setOpened(false), null, [menuRef, burgerRef]);
 
   return (
-    <HeaderComponent>
-      <div className="container">
-        <div className="logo">
+    <header className={styles.header}>
+      <div className={`${styles.container} container`}>
+        <div className={styles.logo}>
           <Image
             src="/assets/logo/trivel-white.svg"
             width={130}
@@ -52,6 +60,6 @@ export const Header = () => {
           aria-label={opened ? "Fechar menu" : "Abrir menu"}
         />
       </div>
-    </HeaderComponent>
+    </header>
   );
-}
+};

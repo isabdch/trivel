@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -8,6 +7,9 @@ const nextConfig = {
         hostname: "127.0.0.1",
       },
     ],
+  },
+  sassOptions: {
+    prependData: `@import "./src/styles/_mantine.scss";`,
   },
 };
 

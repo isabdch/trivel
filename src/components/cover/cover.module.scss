@@ -1,11 +1,8 @@
-import styled from "@emotion/styled";
-
-export const CoverComponent = styled.div<{ src: string }>`
+.cover {
   height: 300px;
-  position: relative;
-  background: url(${(props) => props.src}) no-repeat bottom;
   background-size: cover;
   padding: 20px;
+  position: relative;
 
   &::after,
   &::before {
@@ -25,4 +22,4 @@ export const CoverComponent = styled.div<{ src: string }>`
     background: linear-gradient(180deg, #00000000 70%, white 100%);
     background-size: cover;
   }
-`;
+}

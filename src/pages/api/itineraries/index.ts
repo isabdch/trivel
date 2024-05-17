@@ -4,10 +4,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 // Types
 import { ItinerariesT } from "@/types/itineraries";
 
-export default function handler(
+const handler = (
   req: NextApiRequest,
   res: NextApiResponse<ItinerariesT[]>
-) {
+) => {
   const itineraries: ItinerariesT[] = [
     {
       name: "Praia de Paripueira",
@@ -85,3 +85,5 @@ export default function handler(
 
   res.status(200).json(itineraries);
 }
+
+export default handler;

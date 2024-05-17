@@ -1,22 +1,24 @@
 // Core
-import {
+import Document, {
   Html,
   Head,
   Main,
   NextScript,
-  DocumentProps,
+  DocumentContext,
 } from "next/document";
 
 // Libraries
 import { ColorSchemeScript } from "@mantine/core";
 
-interface MyDocumentProps extends DocumentProps {
-  styles: JSX.Element[];
-}
+class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
 
-export default function Document(props: MyDocumentProps): JSX.Element {
-  return (
-    <Document {...props}>
+    return { ...initialProps };
+  }
+
+  render() {
+    return (
       <Html lang="en">
         <Head>
           <ColorSchemeScript defaultColorScheme="auto" />
@@ -26,6 +28,8 @@ export default function Document(props: MyDocumentProps): JSX.Element {
           <NextScript />
         </body>
       </Html>
-    </Document>
-  );
+    );
+  }
 }
+
+export default MyDocument;

@@ -10,7 +10,7 @@ import { Cover } from "@/components/cover/cover";
 import { Breadcrumbs } from "@/components/breadcrumbs/breadcrumbs";
 
 // Assets
-import { ItineraryPage } from "@/styles/pages/roteiroStyles";
+import styles from "@/styles/pages/itinerary.module.scss";
 
 // Types
 import { ItinerariesT, ItineraryT } from "@/types/itineraries";
@@ -41,18 +41,24 @@ const Itinerary = ({ itinerary }: ItineraryPagePropsT) => {
   return (
     <>
       <Breadcrumbs links={links} />
+
       <Cover src={itinerary.cover} />
-      <ItineraryPage>
+
+      <main className={styles.itinerary}>
         <div className="container"></div>
-      </ItineraryPage>
+      </main>
     </>
   );
-}
+};
 
 export default Itinerary;
 
-export const getStaticProps: GetStaticProps<ItineraryPagePropsT> = async ({ params }) => {
-  const itinerary: ItineraryT = await useFetchItinerary((params as PathParamsT).slug);
+export const getStaticProps: GetStaticProps<ItineraryPagePropsT> = async ({
+  params,
+}) => {
+  const itinerary: ItineraryT = await useFetchItinerary(
+    (params as PathParamsT).slug
+  );
 
   return {
     props: {

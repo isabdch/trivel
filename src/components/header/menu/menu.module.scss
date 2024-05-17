@@ -1,7 +1,5 @@
-import styled from "@emotion/styled";
-
-export const MenuComponent = styled.nav`
-  ${({ theme }) => theme.other.flexUtil("row", "space-between", "center")};
+.menu {
+  @include flex-util(row, space-between, center);
 
   a {
     color: white;
@@ -14,10 +12,10 @@ export const MenuComponent = styled.nav`
     &:not(.search) {
       &.active::after,
       &::after {
-        position: absolute;
+        @include size-util(0%, 2px);
         content: "";
-        ${({ theme }) => theme.other.sizeUtil("0%", "2px")};
         background: white;
+        position: absolute;
         left: 0;
         bottom: -5px;
         transition: 0.3s;
@@ -41,10 +39,10 @@ export const MenuComponent = styled.nav`
   }
 
   @media screen and (max-width: 768px) {
-    ${({ theme }) => theme.other.sizeUtil("100%", "calc(100% - 80px)")};
-    ${({ theme }) => theme.other.flexUtil("column", "flex-start", "center")};
+    @include size-util(100%, calc(100% - 80px));
+    @include flex-util(column, flex-start, center);
     max-width: 300px;
-    background: ${({ theme }) => theme.colors.trivelOrange[5]};
+    background: $primary_5;
     padding: 20px;
     position: fixed;
     bottom: 0;
@@ -64,7 +62,7 @@ export const MenuComponent = styled.nav`
       &:not(.search) {
         &::before {
           content: "TRÍVEL";
-          color: ${({ theme }) => theme.colors.trivelOrange[5]};
+          color: $primary_5;
           font-size: 32px;
           font-weight: 900;
           letter-spacing: 8px;
@@ -91,4 +89,4 @@ export const MenuComponent = styled.nav`
       margin: auto 0 20px 0;
     }
   }
-`;
+}

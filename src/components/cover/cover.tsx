@@ -1,5 +1,6 @@
-import { CoverComponent } from "./coverStyles";
+// Assets
+import styles from "./cover.module.scss";
 
-export function Cover({ src }: { src: string }) {
-  return <CoverComponent src={src} />;
+export const Cover = ({ src }: { src: string }) => {
+  return <div className={styles.cover} style={{  background: `url(${src}) no-repeat bottom` }} />;
 }

@@ -1,9 +1,9 @@
 // Assets
-import home from "@/styles/pages/home.module.css";
+import styles from "@/styles/pages/home.module.scss";
 
 const Home = () => {
   return (
-    <div className={home.container}>
+    <div className={styles.container}>
     </div>
   );
 }

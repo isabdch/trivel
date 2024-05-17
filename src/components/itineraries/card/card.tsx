@@ -1,18 +1,27 @@
+// Core
 import { useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/router";
-import { Itineraries } from "@/types/itineraries";
-import { Badge, Button } from "@mantine/core";
-import { GiPalmTree } from "react-icons/gi";
-import { CardComponent } from "./cardStyles";
+import Image from "next/image";
 
-type Props = {
-  itinerary: Itineraries;
+// Libraries
+import { motion } from "framer-motion";
+import { GiPalmTree } from "react-icons/gi";
+import { Badge, Button } from "@mantine/core";
+
+// Assets
+import styles from "./card.module.scss";
+
+// Types
+import { ItinerariesT } from "@/types/itineraries";
+
+type PropsT = {
+  itinerary: ItinerariesT;
 };
 
-export function Card({ itinerary }: Props) {
-  const [loading, setLoading] = useState(false);
+export function Card({ itinerary }: PropsT) {
   const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
 
   const animation = {
     style: {
@@ -31,8 +40,8 @@ export function Card({ itinerary }: Props) {
   };
 
   return (
-    <CardComponent {...animation}>
-      <div className="img">
+    <motion.div className={styles.card} {...animation}>
+      <div className={styles.img}>
         <Image
           src={
             itinerary?.img ? itinerary?.img : "/assets/images/card_default.jpeg"
@@ -42,19 +51,18 @@ export function Card({ itinerary }: Props) {
         />
       </div>
 
-      <div className="card__body">
-        <div className="title">
-          <h4>
-            {itinerary?.name}
-            {itinerary?.popular && <Badge>Popular</Badge>}
-          </h4>
-        </div>
+      <div className={styles.card__body}>
+        <h4 className={styles.title}>
+          {itinerary?.name}
+          {itinerary?.popular && <Badge>Popular</Badge>}
+        </h4>
 
         <p>{itinerary?.description}</p>
 
         <Button
+          variant="outline"
           loading={loading}
-          leftIcon={<GiPalmTree />}
+          leftSection={<GiPalmTree />}
           onClick={() => {
             setLoading(true);
             router.push("/roteiros/" + itinerary?.link);
@@ -63,6 +71,6 @@ export function Card({ itinerary }: Props) {
           Ver destino
         </Button>
       </div>
-    </CardComponent>
+    </motion.div>
   );
 }

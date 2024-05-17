@@ -1,12 +1,15 @@
+// Core
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FooterComponent } from "./footerStyles";
+
+// Assets
+import styles from "./footer.module.scss";
 
 export const Footer = () => {
   const router = useRouter();
 
   return (
-    <FooterComponent>
+    <footer className={styles.footer}>
       <div className="container">
         <div className="footer-section">
           <Image
@@ -16,16 +19,18 @@ export const Footer = () => {
             alt="Trível"
             onClick={() => router.push("/")}
           />
+
           <p>
             Explore Alagoas de maneira exclusiva com os passeios únicos da
             Trível. Descubra paisagens deslumbrantes e cenários únicos enquanto
             criamos memórias inesquecíveis juntos.
           </p>
         </div>
+
         <div className="footer-section">
           <h3>Mapa do site</h3>
         </div>
       </div>
-    </FooterComponent>
+    </footer>
   );
 };

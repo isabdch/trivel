@@ -1,0 +1,105 @@
+/* Imports */
+@use "sass:math";
+
+/* Variables */
+// Colors
+$primary_1: #FDF2EF;
+$primary_2: #FCEEEA;
+$primary_3: #F9D7CE;
+$primary_4: #F7CABE;
+$primary_5: #F3AF9E;
+$primary_6: #EF947D;
+$primary_7: #EB795D;
+$primary_8: #E75F3C;
+$primary_9: #E5512C;
+$primary_10: #E2451C;
+
+// Breakpoints
+$mantine-breakpoint-xs: "36em";
+$mantine-breakpoint-sm: "48em";
+$mantine-breakpoint-md: "62em";
+$mantine-breakpoint-lg: "75em";
+$mantine-breakpoint-xl: "88em";
+
+/* Functions */
+@function rem($value) {
+  @return #{math.div(math.div($value, $value * 0 + 1), 16)}rem;
+}
+
+/* Mixins */
+@mixin light {
+  [data-mantine-color-scheme="light"] & {
+    @content;
+  }
+}
+
+@mixin dark {
+  [data-mantine-color-scheme="dark"] & {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin smaller-than($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin larger-than($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin rtl {
+  [dir="rtl"] & {
+    @content;
+  }
+}
+
+@mixin ltr {
+  [dir="ltr"] & {
+    @content;
+  }
+}
+
+@mixin size-util($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flex-util($direction: row, $justify-content: flex-start, $align-items: flex-start) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  flex-direction: $direction;
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin text-clamp ($lines: 1) {
+  display: -webkit-box;
+  line-clamp: $lines;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
