@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 
 // Libraries
 import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
 import { LayoutGroup } from "framer-motion";
 import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";

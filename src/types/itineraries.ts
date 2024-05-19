@@ -12,6 +12,28 @@ export type ItineraryT = {
   id: string;
   details: {
     description: string;
+    tour: string;
+    alert?: string;
+    observations?: string;
+    duration?: string;
+    timetable?: string;
+    meetingPoint?: string;
+    costPerPerson?: string;
+    whatIsIncluded?: string;
+    whatIsNotIncluded?: string;
+    additional?: {
+      recommendations?: string;
+      security?: string;
+      accessibilty?: string;
+    };
+    optional?: {
+      title: string;
+      description: string;
+      duration?: string;
+      price?: string;
+      img?: string;
+      observations?: string;
+    }[];
   };
   media: string[];
   popular: boolean;

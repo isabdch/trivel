@@ -6,10 +6,10 @@ import Link from "next/link";
 // Libraries
 import { Button } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import { GoHomeFill } from "react-icons/go";
 import { GiPalmTree } from "react-icons/gi";
-import { AiFillHome } from "react-icons/ai";
-import { IoInformationCircle } from "react-icons/io5";
-import { BsFillQuestionCircleFill } from "react-icons/bs";
+import { MdOutlineQuestionMark } from "react-icons/md";
+import { IoInformationOutline } from "react-icons/io5";
 
 // Assets
 import styles from "./menu.module.scss";
@@ -23,19 +23,19 @@ type MenuPropsT = {
 export const Menu = (props: MenuPropsT) => {
   const router = useRouter();
 
-  const matches = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(max-width: 768px)");
 
   const links = [
     {
       url: "/",
       label: "Home",
-      icon: <AiFillHome size={20} />,
+      icon: <GoHomeFill size={20} />,
       class: router.asPath == "/" ? styles.active : "",
     },
     {
       url: "/como-funciona",
       label: "Como funciona",
-      icon: <BsFillQuestionCircleFill size={20} />,
+      icon: <MdOutlineQuestionMark size={20} />,
       class: router.asPath.includes("como-funciona") ? styles.active : "",
     },
     {
@@ -47,7 +47,7 @@ export const Menu = (props: MenuPropsT) => {
     {
       url: "/sobre-nos",
       label: "Sobre nós",
-      icon: <IoInformationCircle size={25} />,
+      icon: <IoInformationOutline size={20} />,
       class: router.asPath.includes("sobre-nos") ? styles.active : "",
     },
   ];
@@ -65,14 +65,14 @@ export const Menu = (props: MenuPropsT) => {
             className={link.class}
             onClick={() => props.setOpened(false)}
           >
-            {link.label} {matches && link.icon}
+            {isTablet && link.icon} {link.label}
           </Link>
         );
       })}
 
       <Button
-        variant={matches ? "filled" : "white"}
-        size={matches ? "compact-lg" : "compact-md"}
+        variant={isTablet ? "filled" : "white"}
+        size={isTablet ? "md" : "compact-md"}
         onClick={() => {
           router.push("/contato");
           props.setOpened(false);

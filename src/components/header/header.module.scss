@@ -1,10 +1,10 @@
 .header {
-  @include size-util(100%, 80px);
+  @include size-util(100%, $header_height);
   background: $primary_10;
-  padding: 0 20px;
+  padding: 0 $page_padding;
   position: sticky;
   top: 0;
-  z-index: 99;
+  z-index: $top_index;
 
   .container {
     @include flex-util(row, space-between, center);
@@ -23,7 +23,7 @@
     button:not(nav button) {
       display: none;
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: $tablet) {
         display: initial;
       }
     }

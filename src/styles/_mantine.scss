@@ -14,12 +14,13 @@ $primary_8: #E75F3C;
 $primary_9: #E5512C;
 $primary_10: #E2451C;
 
+// Spacing
+$top_index: 99;
+$page_padding: 20px;
+$header_height: 80px;
+
 // Breakpoints
-$mantine-breakpoint-xs: "36em";
-$mantine-breakpoint-sm: "48em";
-$mantine-breakpoint-md: "62em";
-$mantine-breakpoint-lg: "75em";
-$mantine-breakpoint-xl: "88em";
+$tablet: 768px;
 
 /* Functions */
 @function rem($value) {
@@ -79,7 +80,11 @@ $mantine-breakpoint-xl: "88em";
 
 @mixin size-util($width, $height) {
   width: $width;
+  min-width: $width;
+  max-width: $width;
   height: $height;
+  min-height: $height;
+  max-height: $height;
 }
 
 @mixin flex-util($direction: row, $justify-content: flex-start, $align-items: flex-start) {

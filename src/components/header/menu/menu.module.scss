@@ -9,27 +9,20 @@
     text-decoration: none;
     transition: 0.2s;
 
-    &:not(.search) {
-      &.active::after,
-      &::after {
-        @include size-util(0%, 2px);
-        content: "";
-        background: white;
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        transition: 0.3s;
-      }
-
-      &.active::after,
-      &:hover::after {
-        width: 100%;
-      }
+    &.active::after,
+    &::after {
+      @include size-util(0%, 2px);
+      content: "";
+      background: white;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s;
     }
 
-    &.search {
-      font-size: 20px;
-      margin-bottom: -5px;
+    &.active::after,
+    &:hover::after {
+      width: 100%;
     }
   }
 
@@ -38,7 +31,7 @@
     cursor: pointer;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     @include size-util(100%, calc(100% - 80px));
     @include flex-util(column, flex-start, center);
     max-width: 300px;
@@ -59,23 +52,21 @@
       margin: 15px 0;
       font-weight: 600;
 
-      &:not(.search) {
-        &::before {
-          content: "TRÍVEL";
-          color: $primary_5;
-          font-size: 32px;
-          font-weight: 900;
-          letter-spacing: 8px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: -1;
-        }
+      &::before {
+        content: "TRÍVEL";
+        color: $primary_5;
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: 8px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
       }
 
       svg {
-        margin-bottom: -5px;
+        margin-bottom: -4px;
       }
     }
 

@@ -1,3 +1,81 @@
 .itinerary {
-  padding: 20px;
+  padding: $page_padding;
+
+  h1 {
+    color: $primary_10;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  .itinerary__wrapper {
+    @include flex-util;
+    gap: 15px;
+
+    .itinerary__wrapper__info {
+      flex: 1;
+
+      .info__optional__wrapper {
+        padding-top: 10px;
+        border-top: 1px solid var(--mantine-color-gray-2);
+
+        h3 {
+          color: $primary_8;
+          margin-bottom: 10px;
+        }
+
+        .optional__wrapper {
+          @include flex-util;
+          padding-inline: 15px;
+          gap: 5px;
+
+          svg {
+            @include size-util(17px, 20px);
+          }
+
+          .optional__img-wrapper {
+            .wrapper__img {
+              height: 300px;
+              width: 100%;
+              max-width: 550px;
+              position: relative;
+
+              img {
+                border-radius: 4px;
+                object-fit: cover;
+              }
+            }
+
+            span {
+              color: var(--mantine-color-gray-5);
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    .itinerary__wrapper_carousel {
+      min-width: 35%;
+      border-radius: 4px;
+      overflow: hidden;
+
+      .carousel__slide {
+        position: relative;
+
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+
+      .itinerary__wrapper_carousel {
+        min-width: 100%;
+      }
+    }
+  }
 }
