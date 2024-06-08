@@ -30,25 +30,25 @@ export const Menu = (props: MenuPropsT) => {
       url: "/",
       label: "Home",
       icon: <GoHomeFill size={20} />,
-      class: router.asPath == "/" ? styles.active : "",
+      class: router.asPath == "/" ? styles['is-active'] : undefined,
     },
     {
       url: "/como-funciona",
       label: "Como funciona",
       icon: <MdOutlineQuestionMark size={20} />,
-      class: router.asPath.includes("como-funciona") ? styles.active : "",
+      class: router.asPath.includes("como-funciona") ? styles['is-active'] : undefined,
     },
     {
       url: "/roteiros",
       label: "Roteiros",
       icon: <GiPalmTree size={20} />,
-      class: router.asPath.includes("roteiros") ? styles.active : "",
+      class: router.asPath.includes("roteiros") ? styles['is-active'] : undefined,
     },
     {
       url: "/sobre-nos",
       label: "Sobre nós",
       icon: <IoInformationOutline size={20} />,
-      class: router.asPath.includes("sobre-nos") ? styles.active : "",
+      class: router.asPath.includes("sobre-nos") ? styles['is-active'] : undefined,
     },
   ];
 

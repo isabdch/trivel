@@ -2,9 +2,12 @@
 import type { AppProps } from "next/app";
 
 // Libraries
+import "dayjs/locale/pt-br";
 import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 import "@mantine/carousel/styles.css";
 import { LayoutGroup } from "framer-motion";
+import { DatesProvider } from "@mantine/dates";
 import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 
@@ -23,12 +26,14 @@ const App = ({ Component, pageProps }: AppProps) => {
       classNamesPrefix="trivel"
       cssVariablesResolver={resolver}
     >
-      <Notifications position="top-right" zIndex={999} limit={5} />
-      <LayoutGroup>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </LayoutGroup>
+      <DatesProvider settings={{ locale: "pt-br" }}>
+        <Notifications position="top-right" zIndex={999} limit={5} />
+        <LayoutGroup>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </LayoutGroup>
+      </DatesProvider>
     </MantineProvider>
   );
 };

@@ -5,12 +5,16 @@
   font-family: "Montserrat", sans-serif;
 }
 
+#__next {
+  @include flex-util(column, "", stretch);
+  min-height: 100vh;
+}
+
 .container {
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
 }
-
 
 h1 {
   font-size: clamp(28px, 5vw, 46px);

@@ -1,0 +1,7 @@
+.contact {
+  @include flex-center;
+  background: url("/assets/images/page_banner_bg.svg") no-repeat;
+  background-size: 100%;
+  padding: $page_padding;
+  flex: 1;
+}

@@ -9,10 +9,11 @@
     text-decoration: none;
     transition: 0.2s;
 
-    &.active::after,
+    &.is-active::after,
     &::after {
       @include size-util(0%, 2px);
       content: "";
+      max-width: initial;
       background: white;
       position: absolute;
       left: 0;
@@ -20,7 +21,7 @@
       transition: 0.3s;
     }
 
-    &.active::after,
+    &.is-active::after,
     &:hover::after {
       width: 100%;
     }

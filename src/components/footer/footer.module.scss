@@ -1,5 +1,6 @@
 .footer {
   width: 100%;
   background: var(--mantine-color-gray-1);
-  padding: 20px;
+  padding: $page_padding;
+  margin-top: auto;
 }

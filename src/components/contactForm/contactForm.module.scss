@@ -1,0 +1,11 @@
+.contact-form {
+  @include flex-util(column, "", stretch);
+  gap: 15px;
+  margin-block: 30px;
+}
+
+.form-input {
+  label {
+    font-weight: 600;
+  }
+}

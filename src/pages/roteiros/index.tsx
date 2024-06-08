@@ -29,6 +29,7 @@ const Itineraries = ({ itineraries }: ItinerariesPageProps) => {
   return (
     <>
       <Breadcrumbs links={links} />
+
       <main className={styles.itineraries}>
         <div className="container">
           <h1>Roteiros Trível</h1>
